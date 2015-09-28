@@ -1,0 +1,17 @@
+#!/bin/bash
+
+executed=`grep 'begin kgalli config' ~/.profile -c`
+if [ "$executed" != 0 ]; then
+  echo "Skipping update of ~/.profile"
+else
+  echo "Updating ~/.profile"
+  read -r -d '' BASHCONFIG <<- EOM
+  ## begin kgalli config
+  export PS1="\[\e[32;40m\]\w\[\e[0m\] (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \$ "
+  export EDITOR=vim
+
+  alias ll='ls -alF'
+## end kgalli config"
+EOM
+  echo "$BASHCONFIG" >> ~/.profile
+fi
