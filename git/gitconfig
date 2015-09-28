@@ -1,6 +1,3 @@
-[user]
-  name = kgalli
-  email = mail@kgalli.de
 [core]
   editor = vim
   excludesfile = ~/.gitexcludes

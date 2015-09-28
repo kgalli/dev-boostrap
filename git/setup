@@ -13,3 +13,13 @@ fi
 
 # symlink gitconfig directory to ~/.gitconfig
 ln -nfs ~/dev-bootstrap/git/gitconfig ~/.gitconfig
+
+# set user attributes
+echo Please, enter your user name for git
+read NAME
+git config --global user.name $NAME
+
+echo Please, enter your email for git
+read EMAIL
+git config --global user.email $EMAIL
+
