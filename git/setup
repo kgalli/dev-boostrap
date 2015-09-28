@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# use global ignore file for e.g. *.DS_Store and similar
+if [ -f ~/.gitexcludes ]
+then
+  echo "The file ~/.gitexcludes already exists"
+else
+  touch ~/.gitexcludes.txt
+  echo *DS_Store > ~/.gitexcludes
+  echo .idea > ~/.gitexcludes
+  echo *.swp > ~/.gitexcludes
+fi
+
+# symlink gitconfig directory to ~/.gitconfig
+ln -nfs ~/dev-bootstrap/git/gitconfig ~/.gitconfig

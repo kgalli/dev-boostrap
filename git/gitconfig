@@ -1,0 +1,47 @@
+[user]
+  name = kgalli
+  email = mail@kgalli.de
+[core]
+  editor = vim
+  excludesfile = ~/.gitexcludes
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  dc = diff --cached
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  brall = log --graph --pretty=format:'%Cred%h%Creset %Cblue(%aN)%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ar)%Creset' --abbrev-commit --date=short --all
+  br = log --graph --pretty=format:'%Cred%h%Creset %Cblue(%aN)%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ar)%Creset' --abbrev-commit --date=short
+  tree = log --graph --pretty=format:'%Cred%h%Creset %Cblue(%aN)%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ar)%Creset' --abbrev-commit --date=short
+  ls = ls-files
+  ign = ls-files -o -i --exclude-standard
+[color]
+  ui = true
+  diff = auto
+  status = auto
+  branch = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[core]
+  autocrlf = input
+  whitespace =fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[apply]
+  whitespace = nowarn
+[format]
+  pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
