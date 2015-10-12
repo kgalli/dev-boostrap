@@ -1,0 +1,77 @@
+#!/bin/bash
+
+dev_bootstrap_path="$HOME/dev-bootstrap"
+env_script_path="$dev_bootstrap_path/vagrant"
+destination_path=`pwd`  #$1
+
+while [[ $# > 1 ]]
+do
+key="$1"
+
+case $key in
+    -e|--environment)
+    vm_env="$2"
+    shift # past argument
+    ;;
+    -b|--vm_box)
+    vm_box="$2"
+    shift # past argument
+    ;;
+    -m|--vm_memory)
+    vm_memory="$2"
+    shift # past argument
+    ;;
+    -n|--vmname)
+    vm_name="$2"
+    shift # past argument
+    ;;
+    --default)
+    DEFAULT=YES
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+shift # past argument or value
+done
+
+# set default value
+if [ -z "$vm_box" ]   ; then vm_box="debian/jessie" ; fi
+if [ -z "$vm_memory" ]; then vm_memory="2048"       ; fi
+if [ -z "$vm_name" ]  ; then vm_name="dev-box"      ; fi
+
+# replace "/" in vm_box name with "\/"" to prevent errors
+vm_box=$(echo "$vm_box" | sed -e 's/\//\\\//')
+
+if [ "$debug" == true ]; then
+  echo $vm_env
+  echo $vm_box
+  echo $vm_memory
+  echo $vm_name
+fi
+
+
+# write Vagrantfile based on Vagrantfile.tpl template
+echo "Writing Vagrantfile to $destination_path/Vagrantfile"
+sed -e s/{vm_box}/$vm_box/       \
+    -e s/{vm_memory}/$vm_memory/ \
+    -e s/{vm_name}/$vm_name/     <$env_script_path/Vagrantfile.tpl >$destination_path/Vagrantfile
+
+# write bootstrap shell script for provisioning
+echo "Writing bootstrap to $destination_path/bootstrap"
+printf %s "" > $destination_path/bootstrap
+printf "%s\n\n"  "$(<$env_script_path/bootstrap-common)"       > $destination_path/bootstrap
+
+if [ "$vm_env" == "go" ]; then
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-go)"         >> $destination_path/bootstrap
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-postgresql)" >> $destination_path/bootstrap
+fi
+
+if [ "$vm_env" == "rails" ]; then
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-ruby)"       >> $destination_path/bootstrap
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-node)"       >> $destination_path/bootstrap
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-mysql)"      >> $destination_path/bootstrap
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-postgresql)" >> $destination_path/bootstrap
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-phantomjs)"  >> $destination_path/bootstrap
+fi
+

@@ -1,0 +1,9 @@
+# install go and set necessary environment variables
+cd $HOME/
+wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz >/dev/null 2>&1
+tar -C ./ -xzf go1.5.1.linux-amd64.tar.gz
+echo "export GOROOT=$HOME/go" >> $HOME/.profile
+echo "export PATH=$PATH:$GOROOT/bin" >> $HOME/.profile
+mkdir -p $HOME/dev
+echo "export GOPATH=$HOME/dev/go" >> $HOME/.profile
+

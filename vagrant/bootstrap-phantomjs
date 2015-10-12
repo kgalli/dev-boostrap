@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# helper function for apt-get install
+function install {
+    echo installing $1
+    shift
+    sudo apt-get -y install "$@"  >/dev/null 2>&1
+}
+
+# update apt repository
+sudo apt-get update >/dev/null 2>&1
+
+# Install PhantomJS to /usr/local/share and set links
+echo intalling PhantomJS
+sudo apt-get install libfontconfig1 libfreetype6 libstdc++6 >/dev/null 2>&1
+export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
+curl -LO https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 >/dev/null 2>&1
+sudo mv $PHANTOM_JS.tar.bz2 /usr/local/share/
+cd /usr/local/share/
+sudo tar xvjf $PHANTOM_JS.tar.bz2 >/dev/null 2>&1
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/share/phantomjs
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin/phantomjs
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/bin/phantomjs
+

@@ -1,0 +1,11 @@
+# Install MySQL set root password to 'root' and
+# create super user vagrant with password 'vagrant'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+sudo apt-get install -y mysql-server libmysqlclient-dev
+mysql -uroot -proot <<SQL
+CREATE USER 'vagrant'@'localhost' IDENTIFIED BY 'vagrant';
+GRANT ALL PRIVILEGES ON *.* TO 'vagrant'@'localhost';
+FLUSH PRIVILEGES;
+SQL
+

@@ -1,0 +1,19 @@
+# helper function for apt-get install
+function install {
+    echo installing $1
+    shift
+    sudo apt-get -y install "$@"  >/dev/null 2>&1
+}
+
+# update apt repository
+sudo apt-get update >/dev/null 2>&1
+
+# install common libraries and tools
+install 'build essentials and libraries' zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
+install 'dev ttols' git curl libcurl4-gnutls-dev ctags tree colordiff libsqlite3-dev sqlite3
+install 'ack-grep (ack)' ack-grep
+install 'vim and dependencies (janus)' vim ruby rake
+
+# Needed for docs generation.
+sudo update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+

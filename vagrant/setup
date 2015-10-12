@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# symlink vagrant-ini script
+ln -sf "$HOME/dev-bootstrap/vagrant/vagrant-init" "$HOME/bin/vagrant-init"
+
