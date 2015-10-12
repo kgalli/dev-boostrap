@@ -24,6 +24,6 @@ echo 'au BufNewFile,BufRead *.TAB set filetype=sql' >> ~/.vimrc.after
 echo 'au BufNewFile,BufRead *.UDF set filetype=sql' >> ~/.vimrc.after
 
 # install plugins not distributed by janus
-mkdir ~/.janus
-cd ~/.janus
-git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+mkdir -p $HOME/.janus
+cd $HOME/.janus
+git clone https://github.com/fatih/vim-go.git vim-go
