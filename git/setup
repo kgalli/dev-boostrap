@@ -9,8 +9,9 @@ then
 else
   touch $HOME/.gitexcludes
   echo "*DS_Store" >> $HOME/.gitexcludes
-  echo ".idea" >> $HOME/.gitexcludes
-  echo "*.swp" >> $HOME/.gitexcludes
+  echo ".idea"     >> $HOME/.gitexcludes
+  echo "*.swp"     >> $HOME/.gitexcludes
+  echo ".vagrant/" >> $HOME/.gitexcludes
 fi
 
 # copy gitconfig directory to $HOME/.gitconfig
