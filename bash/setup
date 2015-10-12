@@ -1,10 +1,12 @@
 #!/bin/bash
 
-executed=`grep 'begin kgalli config' ~/.profile -c`
+echo "Setting up bash prompt, default editor and aliases"
+
+executed=`grep 'begin kgalli config' $HOME/.profile -c`
 if [ "$executed" != 0 ]; then
-  echo "Skipping update of ~/.profile"
+  echo " - Skipping update of $HOME/.profile"
 else
-  echo "Updating ~/.profile"
+  echo " - Updating $HOME/.profile"
   read -r -d '' BASHCONFIG <<- EOM
   ## begin kgalli config
   export PS1="\[\e[32;40m\]\w\[\e[0m\] (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \$ "
@@ -13,5 +15,5 @@ else
   alias ll='ls -alF'
 ## end kgalli config"
 EOM
-  echo "$BASHCONFIG" >> ~/.profile
+  echo "$BASHCONFIG" >> $HOME/.profile
 fi
