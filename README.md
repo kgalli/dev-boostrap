@@ -12,7 +12,7 @@ Clone the dev-bootstrap repository into your home directory.
 
 ```bash
 cd ~/
-git clone https://github.com/kgalli/dev-boostrap.git
+git clone https://github.com/kgalli/dev-bootstrap.git
 ```
 
 Note that replacing https:// with git:// should also work.
@@ -21,7 +21,7 @@ Note that replacing https:// with git:// should also work.
 ## Run the setup script
 
 ```bash
-cd ~/dev-boostrap
+cd ~/dev-bootstrap
 ./setup
 ```
 
