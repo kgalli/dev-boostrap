@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function search {
+  result=`grep "$1" "$HOME/$2" -c`
+  if [ "$result" != 0 ]; then
+    echo "true"
+  else
+    echo "false"
+  fi
+}
+
+# Load the default .profile
+touch "$HOME/.bash_profile" || echo
+executed=$(search "# Load .profile" ".bash_profile")
+if [ "$executed" == "true" ]; then
+  echo "Skipping update of ~/.bash_profile"
+else
+  echo "[[ -s \"$HOME/.profile\" ]] && source \"$HOME/.profile\" # Load .profile" >> "$HOME/.bash_profile"
+fi
+
+# create bin folder in $HOME and prepend to $PATH
+mkdir -p "$HOME/bin"
+echo "export PATH=\"$HOME/bin:$PATH\"" >> "$HOME/.profile"
+
+source "$HOME/.profile"
+
+./bash/setup
+./vim/setup
+./git/setup
