@@ -1,25 +1,27 @@
 #!/bin/bash
 
+echo "Setting up gitconfig, gitexcludes and user attributes"
+
 # use global ignore file for e.g. *.DS_Store and similar
-if [ -f ~/.gitexcludes ]
+if [ -f $HOME/.gitexcludes ]
 then
-  echo "The file ~/.gitexcludes already exists"
+  echo " - File $HOME/.gitexcludes already exists"
 else
-  touch ~/.gitexcludes.txt
-  echo *DS_Store > ~/.gitexcludes
-  echo .idea > ~/.gitexcludes
-  echo *.swp > ~/.gitexcludes
+  touch $HOME/.gitexcludes
+  echo "*DS_Store" >> $HOME/.gitexcludes
+  echo ".idea" >> $HOME/.gitexcludes
+  echo "*.swp" >> $HOME/.gitexcludes
 fi
 
-# symlink gitconfig directory to ~/.gitconfig
-ln -nfs ~/dev-bootstrap/git/gitconfig ~/.gitconfig
+# copy gitconfig directory to $HOME/.gitconfig
+cp $HOME/dev-bootstrap/git/gitconfig $HOME/.gitconfig
 
 # set user attributes
-echo Please, enter your user name for git
+echo "Please, enter your user name for git"
 read NAME
-git config --global user.name $NAME
+git config --global user.name "$NAME"
 
-echo Please, enter your email for git
+echo "Please, enter your email for git"
 read EMAIL
-git config --global user.email $EMAIL
+git config --global user.email "$EMAIL"
 
