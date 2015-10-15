@@ -2,8 +2,19 @@
 cd $HOME/
 wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz >/dev/null 2>&1
 tar -C ./ -xzf go1.5.1.linux-amd64.tar.gz
-echo 'export GOROOT=$HOME/go' >> $HOME/.profile
-echo 'export PATH=$GOROOT/bin:$PATH' >> $HOME/.profile
+echo 'export GOROOT="$HOME/go"'        >> $HOME/.profile
+echo 'PATH="$GOROOT/bin:$PATH"' >> $HOME/.profile
+echo 'export GOPATH="$HOME/dev/go"'    >> $HOME/.profile
+echo 'PATH="$PATH:$GOPATH/bin"'        >> $HOME/.profile
 mkdir -p $HOME/dev
-echo 'export GOPATH=$HOME/dev/go' >> $HOME/.profile
+
+# install mercurial because some code on google is in it
+sudo apt-get install -y mercurial
+
+# load .profile to set env variables
+source "$HOME/.profile"
+
+# install Go tools
+go get golang.org/x/tools/cmd/vet
+go get golang.org/x/tools/cmd/goimports
 
