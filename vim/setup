@@ -1,29 +1,18 @@
 #!/bin/bash
-curl -Lo- https://bit.ly/janus-bootstrap | bash
 
-# disable plugins
-echo "call janus#disable_plugin('unimpaired')" >> ~/.vimrc.before
-echo "call janus#disable_plugin('vroom')" >> ~/.vimrc.before
-echo "call janus#disable_plugin('vim-multiple-cursors')" >> ~/.vimrc.before
-
-# set UI settings
-echo 'color molokai' >> ~/.gvimrc.after
-echo 'set guifont=Menlo\ Regular:h14' >> ~/.gvimrc.after
-
-# set filetyp mapping for sql
-echo '" filetype mapping' >> ~/.gvimrc.after
-echo 'au BufNewFile,BufRead *.dump set filetype=sql' >> ~/.gvimrc.after
-echo 'au BufNewFile,BufRead *.PRC set filetype=sql' >> ~/.gvimrc.after
-echo 'au BufNewFile,BufRead *.TAB set filetype=sql' >> ~/.gvimrc.after
-echo 'au BufNewFile,BufRead *.UDF set filetype=sql' >> ~/.gvimrc.after
-
-echo '" filetype mapping' >> ~/.vimrc.after
-echo 'au BufNewFile,BufRead *.dump set filetype=sql' >> ~/.vimrc.after
-echo 'au BufNewFile,BufRead *.PRC set filetype=sql' >> ~/.vimrc.after
-echo 'au BufNewFile,BufRead *.TAB set filetype=sql' >> ~/.vimrc.after
-echo 'au BufNewFile,BufRead *.UDF set filetype=sql' >> ~/.vimrc.after
-
-# install plugins not distributed by janus
-mkdir -p $HOME/.janus
-cd $HOME/.janus
-git clone https://github.com/fatih/vim-go.git vim-go
+# symlink vim directory to ~/.vim
+ln -nfs $HOME/dev-bootstrap/vim/ ~/.vim
+# symlink vimrc configuration file to ~/.vimrc
+ln -nfs $HOME/dev-bootstrap/vim/vimrc ~/.vimrc
+# install vim plugins
+mkdir -p $HOME/.vim/bundle
+cd $HOME/.vim/bundle
+git clone https://github.com/honza/dockerfile.vim.git
+git clone https://github.com/kien/ctrlp.vim
+git clone https://github.com/scrooloose/nerdtree.git
+git clone https://github.com/scrooloose/syntastic.git
+git clone https://github.com/tpope/vim-fugitive.git
+git clone https://github.com/airblade/vim-gitgutter.git
+git clone https://github.com/bronson/vim-trailing-whitespace.git
+git clone https://github.com/ervandew/supertab.git
+git clone https://github.com/fatih/vim-go

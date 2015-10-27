@@ -1,0 +1,28 @@
+" Example Vim graphical configuration.
+" Copy to ~/.gvimrc or ~/_gvimrc.
+
+set guifont=Consolas:h12          " Font family and font size.
+set antialias                     " MacVim: smooth fonts.
+set encoding=utf-8                " Use UTF-8 everywhere.
+set guioptions-=T                 " Hide toolbar.
+set background=light              " Background.
+"set lines=25 columns=100          " Window dimensions.
+
+" Uncomment to use.
+set guioptions-=r                 " Don't show right scrollbar
+
+color codeschool
+set guifont=Monaco:h14
+let g:NERDTreeWinPos = "right"
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
+set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
+
+" Uncomment to use central approach for swap/tmp files
+" (for windows only else path has to be adjusted) 
+"set directory=$HOME/vimfiles/vimtmp,.
+
+"x on an English Windows version
+au GUIEnter * simalt ~x
