@@ -69,6 +69,14 @@ map <leader>tm :tabmove
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
+" NERDtree mappings
+map <C-n> :NERDTreeToggle<CR>
+" Open NERDtree automatically on startup if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Close window if NERDtree is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 " filetype mapping
 au BufNewFile,BufRead *.dump set filetype=sql
 au BufNewFile,BufRead *.PRC set filetype=sql
