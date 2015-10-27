@@ -51,6 +51,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 
 " Or use vividchalk
 "colorscheme vividchalk
+colorscheme jellybeans
 
 let mapleader = "ü"
 
