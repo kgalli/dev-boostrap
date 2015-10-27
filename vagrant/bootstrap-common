@@ -12,7 +12,7 @@ sudo apt-get update >/dev/null 2>&1
 install 'build essentials and libraries' zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 install 'dev ttols' git curl libcurl4-gnutls-dev ctags tree colordiff libsqlite3-dev sqlite3
 install 'ack-grep (ack)' ack-grep
-install 'vim and dependencies (janus)' vim ruby rake
+install 'vim' vim
 
 # Needed for docs generation.
 sudo update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
