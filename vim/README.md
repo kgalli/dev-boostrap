@@ -60,5 +60,5 @@ git clone https://github.com/ervandew/supertab.git
 # go development support
 git clone https://github.com/fatih/vim-go
 # super nice status bar
-git@github.com:bling/vim-airline.git
+git clone https://github.com:bling/vim-airline.git
 ```
