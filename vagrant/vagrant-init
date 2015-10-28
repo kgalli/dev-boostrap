@@ -75,3 +75,7 @@ if [ "$vm_env" == "rails" ]; then
   printf "%s\n\n" "$(<$env_script_path/bootstrap-phantomjs)"  >> $destination_path/bootstrap
 fi
 
+if [ "$vm_env" == "docker" ]; then
+  printf "%s\n\n" "$(<$env_script_path/bootstrap-docker)"     >> $destination_path/bootstrap
+fi
+
