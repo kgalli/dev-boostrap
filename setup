@@ -26,4 +26,5 @@ source "$HOME/.profile"
 
 ./bash/setup
 ./vim/setup
+./tmux/setup
 ./git/setup

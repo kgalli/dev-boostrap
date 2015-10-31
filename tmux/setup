@@ -1,0 +1,3 @@
+#!/bin/bash
+ln -nfs $HOME/dev-bootstrap/tmux/tmux.conf $HOME/.tmux.conf
+

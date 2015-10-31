@@ -11,7 +11,7 @@ sudo apt-get update >/dev/null 2>&1
 # install common libraries and tools
 install 'build essentials and libraries' zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 install 'apt https support' apt-transport-https
-install 'dev ttols' git curl libcurl4-gnutls-dev ctags tree colordiff libsqlite3-dev sqlite3
+install 'dev ttols' git curl libcurl4-gnutls-dev ctags tree colordiff libsqlite3-dev sqlite3 tmux
 install 'ack-grep (ack)' ack-grep
 install 'vim' vim
 
