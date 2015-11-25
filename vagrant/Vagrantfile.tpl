@@ -43,6 +43,13 @@ Vagrant.configure(2) do |config|
     vb.name   = "{vm_name}"
   end
 
+  # fix for error 'stdin is not a tty' on ubuntu boxes
+  # stolen from http://foo-o-rama.com/vagrant--stdin-is-not-a-tty--fix.html
+  config.vm.provision :shell do |s|
+    s.privileged = false
+    s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
+
   # Enable ssh forward_agent
   config.ssh.forward_agent = true
 
