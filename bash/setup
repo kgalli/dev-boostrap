@@ -9,7 +9,7 @@ else
   echo " - Updating $HOME/.profile"
   read -r -d '' BASHCONFIG <<- EOM
   ## begin kgalli config
-  export PS1='\[\e[32;40m\]\w\[\e[0m\] (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \$ '
+  export PS1='\e[2m@\$(hostname)\e[22m \[\e[32;40m\]\w\[\e[0m\] (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) $ '
   export EDITOR=vim
 
   alias ll='ls -alF'
