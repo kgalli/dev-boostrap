@@ -46,6 +46,11 @@ Vagrant.configure(2) do |config|
   # Enable ssh forward_agent
   config.ssh.forward_agent = true
 
+  # Set vm hostname
+  config.vm.hostname = "{vm_name}"
+  # vagrant version < 1.7.4 use the following
+  #config.vm.provision :shell, inline: "hostnamectl set-hostname {vm_name}"
+
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
