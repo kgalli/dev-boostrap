@@ -20,6 +20,7 @@ else
   export EDITOR=vim
 
   alias ll='ls -alF'
+  source ~/dev-bootstrap/git/git-completion.bash
 ## end kgalli config"
 EOM
   echo "$BASHCONFIG" >> $HOME/.profile
