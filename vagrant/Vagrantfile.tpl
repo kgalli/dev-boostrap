@@ -19,6 +19,9 @@ Vagrant.configure(2) do |config|
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
 
+  # forward the host machines ssh agent to guest:
+  config.ssh.forward_agent = true
+
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
@@ -55,13 +58,7 @@ Vagrant.configure(2) do |config|
 
   # Set vm hostname
   config.vm.hostname = "{vm_name}"
-  # vagrant version < 1.7.4 use the following
-  #config.vm.provision :shell, inline: "hostnamectl set-hostname {vm_name}"
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  #
   # The `./setup` script will ask which env-{environment} should be executed.
   config.vm.provision :shell, path: 'bootstrap', privileged: false, keep_color: true
 end
