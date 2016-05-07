@@ -18,3 +18,8 @@ git clone https://github.com/ervandew/supertab.git
 #git clone https://github.com/fatih/vim-go
 git clone https://github.com/bling/vim-airline.git
 git clone https://github.com/jelera/vim-javascript-syntax.git
+
+# install powerline fonts
+cd $HOME
+git clone https://github.com/powerline/fonts.git
+.fonts/install.sh
