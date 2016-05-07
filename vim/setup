@@ -22,4 +22,4 @@ git clone https://github.com/jelera/vim-javascript-syntax.git
 # install powerline fonts
 cd $HOME
 git clone https://github.com/powerline/fonts.git
-.fonts/install.sh
+./fonts/install.sh
