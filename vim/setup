@@ -18,6 +18,7 @@ git clone https://github.com/ervandew/supertab.git
 #git clone https://github.com/fatih/vim-go
 git clone https://github.com/bling/vim-airline.git
 git clone https://github.com/jelera/vim-javascript-syntax.git
+git clone https://github.com/kchmck/vim-coffee-script
 
 # install powerline fonts
 cd $HOME
