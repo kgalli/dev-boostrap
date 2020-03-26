@@ -1,9 +1,12 @@
 #!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # symlink vim directory to ~/.vim
-ln -nfs $HOME/dev-bootstrap/vim/ ~/.vim
+ln -nfs $DIR $HOME/.vim
+
 # symlink vimrc configuration file to ~/.vimrc
-ln -nfs $HOME/dev-bootstrap/vim/vimrc ~/.vimrc
+ln -nfs $DIR/vimrc $HOME/.vimrc
+
 # install vim plugins
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
@@ -21,7 +24,3 @@ git clone https://github.com/bling/vim-airline.git
 git clone https://github.com/jelera/vim-javascript-syntax.git
 git clone https://github.com/kchmck/vim-coffee-script
 
-# install powerline fonts
-cd $HOME
-git clone https://github.com/powerline/fonts.git
-./fonts/install.sh
