@@ -1,3 +1,5 @@
 #!/bin/bash
-ln -nfs $HOME/dev-bootstrap/tmux/tmux.conf $HOME/.tmux.conf
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+ln -nfs $DIR/tmux.conf $HOME/.tmux.conf
 
