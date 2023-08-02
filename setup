@@ -4,6 +4,7 @@
 mkdir -p "$HOME/bin"
 echo "export PATH=\"$HOME/bin:$PATH\"" >> "$HOME/.zprofile"
 
+./nvim/setup
 ./vim/setup
 ./tmux/setup
 ./git/setup
