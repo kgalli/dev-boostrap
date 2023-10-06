@@ -1,6 +1,7 @@
 # nvim
 
-My personal neovim config started from https://github.com/nvim-lua/kickstart.nvim.
+My personal neovim config started from https://github.com/nvim-lua/kickstart.nvim
+and replaced/merged it based on the https://github.com/ThePrimeagen/init.lua.
 
 ## General Info
 
