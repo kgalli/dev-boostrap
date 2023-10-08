@@ -82,6 +82,9 @@ require("lazy").setup({
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
     },
+    -- Autoformat on save
+    -- Configured in after/plugins/lsp
+    "lukas-reineke/lsp-format.nvim"
 })
 
 require("kgalli")

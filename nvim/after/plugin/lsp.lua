@@ -58,3 +58,9 @@ cmp.setup({
     ['<C-u>'] = cmp.mapping.scroll_docs(-5),
   }),
 })
+
+-- Configure lsp-format
+require("lsp-format").setup {}
+require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
+-- Run format on :wq
+vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
