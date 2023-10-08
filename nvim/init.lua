@@ -84,7 +84,16 @@ require("lazy").setup({
     },
     -- Autoformat on save
     -- Configured in after/plugins/lsp
-    "lukas-reineke/lsp-format.nvim"
+    "lukas-reineke/lsp-format.nvim",
+    {
+        'akinsho/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = true,
+    },
 })
 
 require("kgalli")
